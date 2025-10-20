@@ -12,6 +12,7 @@ var labs = [
     { name: "Interior", slots: 5, applicants: [] },
     { name: "Kinematograph", slots: 5, applicants: [] },
     { name: "Network", slots: 5, applicants: [] },
+    { name: "SocioLiving", slots: 5, applicants: [] },
     { name: "Software", slots: 5, applicants: [] },
     { name: "Spatial", slots: 5, applicants: [] },
     { name: "Transportation", slots: 5, applicants: [] },

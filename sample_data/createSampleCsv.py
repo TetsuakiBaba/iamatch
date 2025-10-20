@@ -18,8 +18,8 @@ filename_output = "sample.csv"
 number_of_row = 50  # 50人分
 array_studio = [
     "Editorial", "EquipmentService", "Ergonomics", "Interactive",
-    "Interface", "Interior", "Kinematograph", "Network", "Software",
-    "Spatial", "Transportation", "VisualCommunication"
+    "Interface", "Interior", "Kinematograph", "Network", "SocioLiving",
+    "Software", "Spatial", "Transportation", "VisualCommunication"
 ]
 # csvファイルの最初の列が指定する文字列を含めばその行を別ファイルに出力する例
 f_out = open(filename_output, 'w')

@@ -44,7 +44,7 @@ function getAssignPatterns() {
     var sum_student = document.getElementById("sum_student").value;
 
 
-    // 合計が12になるスタジオ構成のすべての組み合わせを返す
+    // 合計が13になるスタジオ構成のすべての組み合わせを返す
     getCandidateStudioCombination([]);
 
     // 検索数が多すぎる場合にbreakしたかったので、someメソッドを使ってます。分かりづらい。

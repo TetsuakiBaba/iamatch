@@ -58,7 +58,7 @@ async function assign() {
         // 6+n*2: 研究室の希望数値（第何希望なのか？）
         // 6+n*2+1: 研究室履修ポイント
 
-        let number_of_studio = 12;
+        let number_of_studio = 13;
         let data_position = {
             timestamp: 0,
             email: 1,
@@ -182,7 +182,8 @@ async function assign() {
             });
         }
         let sumRankn = 0;
-        let statistics = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let statistics = Array(number_of_studio);
+        statistics.fill(0);
         let displayElement = '';
         g_students = students;
         students.forEach(s => {
@@ -203,7 +204,7 @@ async function assign() {
                     '\n';
             }
 
-            const rankn = 13 - s.entry.length;
+            const rankn = (number_of_studio + 1) - s.entry.length;
             statistics[rankn - 1] += 1;
             sumRankn += rankn;
 
