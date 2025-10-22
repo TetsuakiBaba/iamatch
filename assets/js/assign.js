@@ -279,7 +279,8 @@ async function assign() {
 
 var level = {
     pos: 0,
-    has_checked: false
+    has_checked: false,
+    shortage: 0
 };
 
 /**
@@ -325,9 +326,9 @@ async function iamatch(is_until_ended = false) {
 
     // capacity_now人数分、配属すべき数
     let number_to_be_assigned = selected_assign_pattern[level.pos];
-
+    
     // すでに終了済み
-    if (level.pos > selected_assign_pattern.length) {
+    if (level.pos >= selected_assign_pattern.length) {
         // alert("すでに配属作業は終了しています");
         const myModal = new bootstrap.Modal(document.getElementById('myModal'));
         const dom_modal = document.getElementById('myModal');
@@ -351,7 +352,7 @@ async function iamatch(is_until_ended = false) {
     //console.log("hello", number_to_be_assigned, assigned.length);
 
     // (capacity_now）分配属された研究室数が、組み合わせ研究室数より大きい場合
-    if (assigned.length > number_to_be_assigned) {
+    if (assigned.length > number_to_be_assigned + level.shortage) {
         labs.forEach(lab => {
             lab.element_search.checked(false);
         });
@@ -379,7 +380,7 @@ async function iamatch(is_until_ended = false) {
 
         // すでに (max - level)よりも少ない学生しかいない研究室は一律定員を-1する
         // ただし、(max-level）での処理分につき、最初の一回だけ実行しないといけない
-        if (level.has_checked == false) {
+        if (level.has_checked == false && level.shortage == 0) {
             level.has_checked = true;
             let untargeted = labs.filter(function (lab) {
                 return lab.element_assigned.value() < capacity_now;
@@ -395,6 +396,7 @@ async function iamatch(is_until_ended = false) {
     else {
         level.pos++;
         level.has_checked = false;
+        level.shortage = Math.max(0, number_to_be_assigned - assigned.length);
         labs.forEach(lab => {
             lab.element_search.checked(false);
         });
