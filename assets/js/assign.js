@@ -58,7 +58,7 @@ async function assign() {
         // 6+n*2: 研究室の希望数値（第何希望なのか？）
         // 6+n*2+1: 研究室履修ポイント
 
-        let number_of_studio = 13;
+        let number_of_studio = labs.length;
         let data_position = {
             timestamp: 0,
             email: 1,
@@ -326,7 +326,7 @@ async function iamatch(is_until_ended = false) {
 
     // capacity_now人数分、配属すべき数
     let number_to_be_assigned = selected_assign_pattern[level.pos];
-    
+
     // すでに終了済み
     if (level.pos >= selected_assign_pattern.length) {
         // alert("すでに配属作業は終了しています");
